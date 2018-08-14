@@ -28,11 +28,13 @@ remote-control:
 {% endif %}
 {% endfor %}
 
+{% if nsd_keys is defined and nsd_keys %}
 key:
 {% for k, v in nsd_keys | dictsort %}
     name: {{ k }}
     include: "{{ nsd_conf_dir }}/{{ k }}.key"
 {% endfor %}
+{% endif %}
 
 {% for k, v in nsd_zones | dictsort %}
 zone:

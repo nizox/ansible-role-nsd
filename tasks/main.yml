@@ -22,6 +22,7 @@
     owner: "{{ nsd_user }}"
     group: "{{ nsd_group }}"
   with_dict: "{{ nsd_keys }}"
+  when: "nsd_keys is defined"
   notify: Restart nsd
 
 - name: Create zone files
