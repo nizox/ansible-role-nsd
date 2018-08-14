@@ -36,7 +36,11 @@ key:
 
 {% for k, v in nsd_zones | dictsort %}
 zone:
+{% if 'name' in v %}
+    name: {{ v.name }}
+{% else %}
     name: {{ k }}
+{% endif %}
 {% if 'zonefile' in v %}
     zonefile: {{ v.zonefile }}
 {% endif %}
